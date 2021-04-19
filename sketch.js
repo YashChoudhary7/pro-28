@@ -57,6 +57,25 @@ function draw() {
   rope.display();
 stoneObj.display();
   groundObject.display();
+
+  detectCollision(stoneObj,mango1);
+  detectCollision(stoneObj,mango2);
+
+  detectCollision(stoneObj,mango3);
+
+  detectCollision(stoneObj,mango4);
+
+  detectCollision(stoneObj,mango5);
+
+  detectCollision(stoneObj,mango6);
+
+  detectCollision(stoneObj,mango7);
+
+  detectCollision(stoneObj,mango8);
+
+  detectCollision(stoneObj,mango9);
+
+
   
 }
 
@@ -68,4 +87,20 @@ function mouseDragged(){
 
 function mouseReleased(){
     rope.fly();
+}
+
+function detectCollision(lstone, lmango){
+  mangoBodyPosition=lmango.body.position;
+  stoneBodyPosition=lstone.body.position;
+var distance =dist(stoneBodyPosition.x,stoneBodyPosition.y,mangoBodyPosition.x,mangoBodyPosition.y);
+if (distance<=lmango.r+lstone.r){
+  Matter.Body.setStatic(lmango.body,false);
+}
+}
+
+function keyPressed(){
+  if(keyCode===32){
+    Matter.Body.setPosition(stoneObj.body,{x:230,y:410});
+    rope.attach(stoneObj.body);
+  }
 }
