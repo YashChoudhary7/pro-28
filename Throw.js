@@ -23,4 +23,7 @@ class xyz{
     fly(){
         this.xyz.bodyA=null;
     }
+    attach(body){
+        this.xyz.bodyA=body;
+    }
 }
